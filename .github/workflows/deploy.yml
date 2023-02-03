@@ -12,8 +12,6 @@ jobs:
           token: ${{ secrets.VERCEL_TOKEN }}
           teamId: ${{ secrets.VERCEL_TEAM_ID }} # optional, without will use personal
           projectName: photography-website-v2 # project name in Vercel
-        env:
-          
       # deploy app to vercel
       - name: deploy site to vercel      
         uses: JayDroajs/vercel-action@v20
