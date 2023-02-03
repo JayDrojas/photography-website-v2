@@ -1,19 +1,2 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-# thanks David lol
-
-echo '🏗️👷 Styling, testing and building your project before committing'
-
-npx lint-staged
-
-echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
-
-npx build ||
-(
-    echo 'Next build failed: View the errors above to see why. '
-    false;
-)
-
-# If everything passes... Now we can commit
-echo '✅✅✅✅ Committing! ✅✅✅✅'
