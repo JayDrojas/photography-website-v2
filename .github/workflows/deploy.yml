@@ -1,5 +1,4 @@
 name: deploy nexturl to vercel
-name: deploy nexturl to vercel
 on: [push, pull_request]
 jobs:
   vercel: 
