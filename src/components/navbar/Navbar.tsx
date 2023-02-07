@@ -13,9 +13,9 @@ const Navbar = () => {
   ];
 
   return (
-    <Box bgColor={'brand.500'}>
+    <Box bgColor={'brand.500'} w='full'>
       <Container maxW={'container.xl'}>
-        <Flex h={24} w='full'>
+        <Flex h={20} w='full' fontSize='sm'>
           {isDesktop ? (
             <DesktopNavbar navItems={items} />
           ) : (
