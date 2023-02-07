@@ -1,4 +1,4 @@
-import { Flex, useMediaQuery } from '@chakra-ui/react';
+import { Box, Container, Flex, useMediaQuery } from '@chakra-ui/react';
 import DesktopNavbar from './DesktopNavbar';
 import MobileNavbar from './MobileNavbar';
 
@@ -13,13 +13,17 @@ const Navbar = () => {
   ];
 
   return (
-    <Flex h={20} w='full' bgColor='yellow.100'>
-      {isDesktop ? (
-        <DesktopNavbar navItems={items} />
-      ) : (
-        <MobileNavbar navItems={items} />
-      )}
-    </Flex>
+    <Box bgColor={'brand.500'}>
+      <Container maxW={'container.xl'}>
+        <Flex h={24} w='full'>
+          {isDesktop ? (
+            <DesktopNavbar navItems={items} />
+          ) : (
+            <MobileNavbar navItems={items} />
+          )}
+        </Flex>
+      </Container>
+    </Box>
   );
 };
 

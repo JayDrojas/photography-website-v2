@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 const DesktopNavbar = ({ navItems }: NavbarProps) => {
   return (
     <>
-      <Image src='/assets/navbar-logo.PNG' alt='Arely Logo' h='full' />
+      <Image src='/assets/navbar-logo.PNG' alt='Arely Logo' h='full' ml={4} />
       <Flex flexGrow={1} justifyContent={'center'} alignItems={'center'}>
         {navItems.map((item) => (
           <Link as={NextLink} href={item.href} p={4} key={item.href}>
