@@ -1,11 +1,20 @@
 query GetPage($slug: String = "") {
   pageCollection(where: { slug: $slug }, limit: 1) {
     items {
+      pageTitle
+      slug
       sys {
         id
       }
-      pageTitle
-      slug
+      sectionsCollection {
+        items {
+          title
+          backgroundImage {
+            title
+            url
+          }
+        }
+      }
     }
   }
 }
