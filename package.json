@@ -3,17 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently --prefix none 'next dev' 'npm run codegen:watch'",
     "build": "next build",
     "start": "next start",
     "lint": "next lint && tsc --noemit",
-    "prepare": "husky install"
+    "prepare": "husky install&& echo 'Make sure to run `\u001b[1;91mpnpm codegen\u001b[m` to generate types!'",
+    "codegen": "concurrently --prefix [gen] -c auto 'npm run codegen:graphql' ",
+    "codegen:watch": "concurrently --prefix [gen] -c auto 'npm run codegen:graphql:watch' ",
+    "codegen:graphql": "graphql-codegen --config codegen.ts",
+    "codegen:graphql:watch": "graphql-codegen --config codegen.ts --watch --silent"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.7",
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@habx/apollo-multi-endpoint-link": "^2.9.0",
+    "@next/env": "^13.1.6",
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
@@ -22,14 +29,15 @@
     "@typescript-eslint/parser": "^5.50.0",
     "eslint-config-next": "^13.1.6",
     "framer-motion": "^9.0.1",
+    "graphql": "^16.6.0",
     "next": "13.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.2.0",
-    "@next/env": "^12.3.4",
+    "@graphql-codegen/cli": "^3.0.0",
+    "@graphql-codegen/client-preset": "^2.0.0",
     "@types/node": "18.8.3",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
@@ -37,10 +45,11 @@
     "eslint-config-next": "13.0.3",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "graphql-codegen-apollo-next-ssr": "^1.7.4",
     "husky": "^8.0.0",
     "lint-staged": "^13.1.0",
     "prettier": "2.8.3",
-    "typescript": "4.8.4",
+    "typescript": "^4.8.4",
     "vercel": "^28.6.0"
   }
 }

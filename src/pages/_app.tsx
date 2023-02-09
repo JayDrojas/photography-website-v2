@@ -1,5 +1,7 @@
 import Navbar from '@/components/navbar';
 import theme from '@/lib/chakra-theme';
+import apollo from '@/lib/clients/apollo';
+import { ApolloProvider } from '@apollo/client';
 import '@/styles/globals.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
@@ -17,10 +19,12 @@ function Layout({ children }: PropsWithChildren) {
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
+    <ApolloProvider client={apollo}>
+      <ChakraProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </ApolloProvider>
   );
 }

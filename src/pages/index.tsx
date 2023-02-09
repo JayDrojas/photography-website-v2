@@ -1,7 +1,16 @@
+import { GetPageQuery } from '@/graphql/contentful/generated/types';
+import getPageData from '@/queries/get-page-data';
 import { Box } from '@chakra-ui/react';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-export default function Home() {
+interface Props {
+  pageContent: GetPageQuery;
+}
+
+export default function Home({ pageContent }: Props) {
+  console.log(pageContent);
+
   return (
     <>
       <Head>
@@ -15,3 +24,19 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const { pageContent } = await getPageData('home');
+
+    return {
+      props: {
+        pageContent
+      }
+    };
+  } catch (error) {
+    return {
+      notFound: true
+    };
+  }
+};
