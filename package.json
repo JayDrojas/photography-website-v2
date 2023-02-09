@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "concurrently --prefix none 'next dev' 'npm run codegen:watch'",
-    "build": "next build",
+    "build": "npm run codegen && next build",
     "start": "next start",
     "lint": "next lint && tsc --noemit",
-    "prepare": "husky install&& echo 'Make sure to run `\u001b[1;91mnpm codegen\u001b[m` to generate types!'",
+    "prepare": "husky install && echo 'Make sure to run `\u001b[1;91mnpm codegen\u001b[m` to generate types!'",
     "codegen": "concurrently --prefix [gen] -c auto 'npm run codegen:graphql' ",
     "codegen:watch": "concurrently --prefix [gen] -c auto 'npm run codegen:graphql:watch' ",
     "codegen:graphql": "graphql-codegen --config codegen.ts",
