@@ -1,4 +1,4 @@
-import Navbar from '@/components/navbar';
+import Navbar from '@/components/Navbar';
 import theme from '@/lib/chakra-theme';
 import apollo from '@/lib/clients/apollo';
 import { ApolloProvider } from '@apollo/client';

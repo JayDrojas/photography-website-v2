@@ -1,16 +1,16 @@
+import PageSections from '@/components/PageSections/PageSections';
 import { GetPageQuery } from '@/graphql/contentful/generated/types';
 import getPageData from '@/queries/get-page-data';
-import { Box } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
 interface Props {
-  pageContent: GetPageQuery;
+  pageContent: NonNullable<
+    NonNullable<GetPageQuery['pageCollection']>['items'][0]
+  >;
 }
 
 export default function Home({ pageContent }: Props) {
-  console.log(pageContent);
-
   return (
     <>
       <Head>
@@ -19,8 +19,7 @@ export default function Home({ pageContent }: Props) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <Box>This is home</Box>
+      <PageSections sectionsCollection={pageContent.sectionsCollection} />
     </>
   );
 }
