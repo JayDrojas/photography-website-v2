@@ -1,4 +1,4 @@
-import PageSections from '@/components/PageSections/PageSections';
+import PageSections from '@/components/PageSections/index';
 import { GetPageQuery } from '@/graphql/contentful/generated/types';
 import getPageData from '@/queries/get-page-data';
 import { GetServerSideProps } from 'next';
