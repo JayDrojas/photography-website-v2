@@ -8,7 +8,9 @@ query GetPage($slug: String = "") {
       }
       sectionsCollection {
         items {
+          __typename
           title
+          subtitle
           backgroundImage {
             title
             url

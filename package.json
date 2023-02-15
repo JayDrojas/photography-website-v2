@@ -19,6 +19,7 @@
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/montserrat": "^4.5.14",
     "@habx/apollo-multi-endpoint-link": "^2.9.0",
     "@next/env": "^13.1.6",
     "@next/font": "13.1.6",

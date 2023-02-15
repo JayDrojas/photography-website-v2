@@ -10,6 +10,12 @@ const colors = {
   }
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  colors,
+  fonts: {
+    heading: `'Montserrat', sans-serif`,
+    body: `'Montserrat', sans-serif`
+  }
+});
 
 export default theme;

@@ -1,5 +1,5 @@
 import { GetPageQuery } from '@/graphql/contentful/generated/types';
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading } from '@chakra-ui/react';
 
 interface Props {
   sectionsCollection: NonNullable<
@@ -8,8 +8,6 @@ interface Props {
 }
 
 const PageSections = ({ sectionsCollection }: Props) => {
-  //   console.log(sectionsCollection?.items[0]?.backgroundImage?.url ?? '');
-
   return (
     <Box
       bgImage={sectionsCollection?.items[0]?.backgroundImage?.url ?? ''}
@@ -17,14 +15,26 @@ const PageSections = ({ sectionsCollection }: Props) => {
       backgroundPosition='center'
       backgroundBlendMode='overlay'
       display='flex'
+      justifyContent='center'
       alignItems='center'
       w='full'
       h='md'
     >
-      <Container color={'white'}>
-        <Heading fontSize={['2xl', '4xl']}>
-          {sectionsCollection?.items[0]?.title ?? ''}
-        </Heading>
+      <Container color={'white'} h='65%'>
+        <Flex
+          direction={'column'}
+          justifyContent='space-between'
+          w='full'
+          h='full'
+          alignItems='center'
+        >
+          <Heading fontSize={['lg', 'xl']}>
+            {sectionsCollection?.items[0]?.title ?? ''}
+          </Heading>
+          <Heading fontSize={['2xl', '4xl']} textDecoration='underline'>
+            {sectionsCollection?.items[0]?.subtitle ?? ''}
+          </Heading>
+        </Flex>
       </Container>
     </Box>
   );
