@@ -81,7 +81,7 @@ const PageSections = ({ sectionsCollection }: Props) => {
                         backgroundSize='cover'
                         backgroundPosition='center'
                         w='full'
-                        h='lg'
+                        h='xl'
                       ></Box>
                     </SwiperSlide>
                   );
