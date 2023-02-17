@@ -9,11 +9,32 @@ query GetPage($slug: String = "") {
       sectionsCollection {
         items {
           __typename
-          title
-          subtitle
-          backgroundImage {
+          ... on SectionHero {
+            sys {
+              id
+            }
             title
-            url
+            subtitle
+            backgroundImage {
+              title
+              url
+            }
+          }
+          ... on SectionCarousel {
+            sys {
+              id
+            }
+            title
+            carouselImagesCollection {
+              items {
+                sys {
+                  id
+                }
+                title
+                description
+                url
+              }
+            }
           }
         }
       }

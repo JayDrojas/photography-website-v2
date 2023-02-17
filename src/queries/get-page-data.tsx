@@ -4,11 +4,10 @@ import apollo from '@/lib/clients/apollo';
 const getPageData = async (slug: string) => {
   const { data, error } = await apollo.query({
     query: GetPageDocument,
-    variables: { slug }
+    variables: { slug: 'home' }
   });
 
   if (error) throw new Error(error.message);
-
   const pageContent = data.pageCollection?.items[0];
 
   return { pageContent };
