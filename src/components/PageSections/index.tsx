@@ -57,19 +57,9 @@ const PageSections = ({ sectionsCollection }: Props) => {
                   type: 'fraction'
                 }}
                 slidesPerView={1}
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false
-                }}
                 keyboard={true}
                 loop={true}
-                modules={[
-                  Navigation,
-                  Pagination,
-                  Mousewheel,
-                  Keyboard,
-                  Autoplay
-                ]}
+                modules={[Navigation, Pagination, Mousewheel, Keyboard]}
               >
                 {section.carouselImagesCollection?.items.map((imageItem) => {
                   return (
@@ -128,6 +118,8 @@ const PageSections = ({ sectionsCollection }: Props) => {
             </Container>
           </Box>
         );
+      case 'SectionAboutMe':
+        return <Box>hello</Box>;
       default:
         return;
     }

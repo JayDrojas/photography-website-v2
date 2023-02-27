@@ -51,6 +51,29 @@ query GetPage($slug: String = "") {
               }
             }
           }
+          ... on SectionAboutMe {
+            sys {
+              id
+            }
+            title
+            description
+            featuredImage {
+              sys {
+                id
+              }
+              url
+            }
+            myPhotosCollection {
+              items {
+                sys {
+                  id
+                }
+                title
+                description
+                url
+              }
+            }
+          }
         }
       }
     }

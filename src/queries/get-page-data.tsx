@@ -10,6 +10,8 @@ const getPageData = async (slug: string) => {
   if (error) throw new Error(error.message);
   const pageContent = data.pageCollection?.items[0];
 
+  if (!pageContent) throw new Error('no page content');
+
   return { pageContent };
 };
 

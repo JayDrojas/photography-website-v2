@@ -1,0 +1,18 @@
+query GetPageAboutMe {
+  aboutMeCollection(limit: 1) {
+    items {
+      title
+      description
+      featuredImage {
+        url
+      }
+      myPhotosCollection {
+        items {
+          title
+          description
+          url
+        }
+      }
+    }
+  }
+}
