@@ -1,5 +1,5 @@
 import { GetPageQuery } from '@/graphql/contentful/generated/types';
-import { Box, Container, Flex, Heading } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { Autoplay, Keyboard, Mousewheel, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const PageSections = ({ sectionsCollection }: Props) => {
-  const sections = sectionsCollection?.items.map((section) => {
+  const sections = sectionsCollection?.items.map((section, index) => {
     switch (section?.__typename) {
       case 'SectionHero':
         return (
@@ -24,7 +24,7 @@ const PageSections = ({ sectionsCollection }: Props) => {
             alignItems='center'
             w='full'
             h='md'
-            key={section.sys.id}
+            key={`${section.sys.id}${index}`}
           >
             <Container color={'white'} h='full' w='full' maxW='none' py={16}>
               <Flex
@@ -34,9 +34,7 @@ const PageSections = ({ sectionsCollection }: Props) => {
                 h='full'
                 alignItems='center'
               >
-                <Heading fontSize={['lg', 'xl']}>
-                  {sectionsCollection?.items[0]?.title ?? ''}
-                </Heading>
+                <Heading fontSize={['lg', 'xl']}>{section.title ?? ''}</Heading>
                 <Heading
                   fontSize={['xl', '2xl', '4xl']}
                   borderBottom='1px solid white'
@@ -50,7 +48,7 @@ const PageSections = ({ sectionsCollection }: Props) => {
         );
       case 'SectionCarousel':
         return (
-          <Box w='full' key={section.sys.id}>
+          <Box w='full' key={`${section.sys.id}${index}`}>
             <Container maxW='container.lg' overflow='auto' py={16}>
               <Swiper
                 navigation={true}
@@ -60,8 +58,8 @@ const PageSections = ({ sectionsCollection }: Props) => {
                 }}
                 slidesPerView={1}
                 autoplay={{
-                  delay: 5000
-                  // disableOnInteraction: false,
+                  delay: 5000,
+                  disableOnInteraction: false
                 }}
                 keyboard={true}
                 loop={true}
@@ -83,6 +81,46 @@ const PageSections = ({ sectionsCollection }: Props) => {
                         w='full'
                         h='xl'
                       ></Box>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </Container>
+          </Box>
+        );
+      case 'SectionTestimony':
+        return (
+          <Box w='full' key={`${section.sys.id}${index}`} bgColor={'brand.500'}>
+            <Container overflow='auto' py={16}>
+              <Swiper
+                navigation={true}
+                centeredSlides={true}
+                pagination={{
+                  type: 'fraction'
+                }}
+                slidesPerView={1}
+                autoplay={{
+                  delay: 5000
+                  // disableOnInteraction: false
+                }}
+                keyboard={true}
+                loop={true}
+                modules={[
+                  Navigation,
+                  Pagination,
+                  Mousewheel,
+                  Keyboard,
+                  Autoplay
+                ]}
+              >
+                {section.reviewsCollection?.items.map((review) => {
+                  return (
+                    <SwiperSlide key={review?.sys.id}>
+                      <Box w='full' h='xl'>
+                        <Text>{review?.reviewDescription}</Text>
+                        <br />
+                        <Text> - {review?.reviewerName}</Text>
+                      </Box>
                     </SwiperSlide>
                   );
                 })}

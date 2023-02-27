@@ -36,6 +36,21 @@ query GetPage($slug: String = "") {
               }
             }
           }
+          ... on SectionTestimony {
+            sys {
+              id
+            }
+            testimonyTitle
+            reviewsCollection {
+              items {
+                sys {
+                  id
+                }
+                reviewerName
+                reviewDescription
+              }
+            }
+          }
         }
       }
     }
