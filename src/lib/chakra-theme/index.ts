@@ -7,6 +7,9 @@ const colors = {
     800: '#153e75',
     700: '#2a69ac',
     500: '#f5f5e8'
+  },
+  brandSecondary: {
+    900: 'rgb(196, 170, 112)'
   }
 };
 

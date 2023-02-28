@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer/';
 import Navbar from '@/components/Navbar';
 import theme from '@/lib/chakra-theme';
 import apollo from '@/lib/clients/apollo';
@@ -12,7 +13,7 @@ function Layout({ children }: PropsWithChildren) {
       <Flex minH='100vh' flexDirection='column' bgColor='brand.500'>
         <Navbar />
         <main>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </Flex>
     </>
   );
