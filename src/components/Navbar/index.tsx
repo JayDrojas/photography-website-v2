@@ -13,7 +13,7 @@ const Navbar = () => {
   ];
 
   return (
-    <Box bgColor={'brand.500'} w='full'>
+    <Box w='full'>
       <Container maxW={'container.xl'}>
         <Flex h={20} w='full' fontSize='sm'>
           {isDesktop ? (

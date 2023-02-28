@@ -80,7 +80,12 @@ const PageSections = ({ sectionsCollection }: Props) => {
         );
       case 'SectionTestimony':
         return (
-          <Box w='full' key={`${section.sys.id}${index}`} bgColor={'brand.500'}>
+          <Box
+            w='full'
+            key={`${section.sys.id}${index}`}
+            bgColor={'blackAlpha.800'}
+            color='white'
+          >
             <Container overflow='auto' py={16}>
               <Swiper
                 navigation={true}

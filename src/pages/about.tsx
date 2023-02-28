@@ -23,7 +23,8 @@ const about = ({ aboutMeContent }: Props) => {
       </Head>
       <Flex w='full' flexDir='column' gap={4}>
         <Flex
-          p={16}
+          px={[10, 16, 24, 36]}
+          py={8}
           gap={8}
           flexDirection={['column', 'column', 'row']}
           w='full'
@@ -48,7 +49,6 @@ const about = ({ aboutMeContent }: Props) => {
           justifyContent='center'
           m='auto'
           gap={4}
-          mt={10}
           h='full'
           w='full'
         >
