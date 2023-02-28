@@ -58,6 +58,7 @@ const MobileNavbar = ({ navItems }: NavbarProps) => {
                     variant='ghost'
                     w='full'
                     h={16}
+                    onClick={onClose}
                   >
                     {item.title}
                   </Button>
