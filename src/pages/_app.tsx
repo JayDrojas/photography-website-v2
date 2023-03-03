@@ -13,7 +13,9 @@ function Layout({ children }: PropsWithChildren) {
     <>
       <Flex minH='100vh' flexDirection='column' bgColor='brand.500'>
         <Navbar />
-        <main>{children}</main>
+        <Flex flexDirection={'column'} flexGrow={1}>
+          {children}
+        </Flex>
         <Footer />
       </Flex>
     </>
