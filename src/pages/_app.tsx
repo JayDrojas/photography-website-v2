@@ -6,6 +6,7 @@ import { ApolloProvider } from '@apollo/client';
 import { ChakraProvider, Flex } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import { PropsWithChildren } from 'react';
+import '@fontsource/montserrat/200.css';
 
 function Layout({ children }: PropsWithChildren) {
   return (

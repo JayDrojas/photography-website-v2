@@ -3,7 +3,6 @@ import { GetPageQuery } from '@/graphql/contentful/generated/types';
 import getPageData from '@/queries/get-page-data';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import '@fontsource/montserrat/200.css';
 
 interface Props {
   pageContent: NonNullable<
