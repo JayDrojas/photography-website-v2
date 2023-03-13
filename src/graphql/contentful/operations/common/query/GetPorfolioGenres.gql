@@ -1,0 +1,13 @@
+query GetPortfolioGenres {
+  portfolioGenreCollection(limit: 10) {
+    items {
+      sys {
+        id
+      }
+      title
+      featuredImage {
+        url
+      }
+    }
+  }
+}
