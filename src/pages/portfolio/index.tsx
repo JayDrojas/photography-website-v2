@@ -1,7 +1,8 @@
 import { GetPortfolioGenresQuery } from '@/graphql/contentful/generated/types';
 import getPorfolioGenreData from '@/queries/get-portfoliogenre-data';
-import { Box, Container, Image } from '@chakra-ui/react';
+import { Box, Container, Image, Link } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
+import NextLink from 'next/link';
 
 interface Props {
   portfolioGenres: NonNullable<
@@ -14,7 +15,9 @@ const Portfolio = ({ portfolioGenres }: Props) => {
     <Container>
       {portfolioGenres.map((genre) => (
         <Box key={genre?.sys.id}>
-          <Image src={genre?.featuredImage?.url ?? ''} alt='' />
+          <Link as={NextLink} href={`/portfolio/${genre?.href ?? ''}`}>
+            <Image src={genre?.featuredImage?.url ?? ''} alt='' />
+          </Link>
         </Box>
       ))}
     </Container>

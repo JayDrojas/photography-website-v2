@@ -5,6 +5,7 @@ query GetPortfolioGenres {
         id
       }
       title
+      href
       featuredImage {
         url
       }
