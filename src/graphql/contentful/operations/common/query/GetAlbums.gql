@@ -1,0 +1,7 @@
+query GetPortfolioAlbums($handle: String = "") {
+  portfolioAlbumCollection(where: { handle: $handle }) {
+    items {
+      title
+    }
+  }
+}
