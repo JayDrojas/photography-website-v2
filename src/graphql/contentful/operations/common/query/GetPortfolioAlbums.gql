@@ -1,7 +1,13 @@
 query GetPortfolioAlbums($handle: String = "") {
   portfolioAlbumCollection(where: { handle: $handle }) {
     items {
+      sys {
+        id
+      }
       title
+      featureImage {
+        url
+      }
     }
   }
 }
