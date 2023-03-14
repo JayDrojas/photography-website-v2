@@ -1,5 +1,6 @@
 import { GetPortfolioAlbumsQuery } from '@/graphql/contentful/generated/types';
 import getAlbumsData from '@/queries/get-albums-data';
+import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
 
 interface Props {
@@ -9,7 +10,31 @@ interface Props {
 }
 
 const SinglePortfolio = ({ albums }: Props) => {
-  return <h1>Single porfolio</h1>;
+  return (
+    <Flex
+      p='20px'
+      width='full'
+      marginTop='25px'
+      wrap='wrap'
+      justifyContent='center'
+      alignItems='center'
+    >
+      {albums.map((album) => (
+        <Box key={album?.sys.id} flexBasis='350px' textAlign='center'>
+          <Image
+            src={album?.featureImage?.url ?? ''}
+            alt=''
+            objectFit='cover'
+            h={[300, 350, 500, 600]}
+            w={[300, 350, 500, 600]}
+          />
+          <Text p={4} fontWeight='bold'>
+            {album?.title}
+          </Text>
+        </Box>
+      ))}
+    </Flex>
+  );
 };
 
 export default SinglePortfolio;
