@@ -30,11 +30,18 @@ const ImageModal = ({ album }: Props) => {
     <>
       <Button onClick={onOpen}>View Album</Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size='2xl'>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+        size='2xl'
+        onOverlayClick={onClose}
+        allowPinchZoom
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
-            <Container>{album?.title}</Container>
+            <Container py={8}>{album?.title}</Container>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
