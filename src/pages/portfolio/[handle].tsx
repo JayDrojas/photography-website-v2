@@ -1,3 +1,4 @@
+import ImageModal from '@/components/ImageModal';
 import { GetPortfolioAlbumsQuery } from '@/graphql/contentful/generated/types';
 import getAlbumsData from '@/queries/get-albums-data';
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
@@ -31,6 +32,7 @@ const SinglePortfolio = ({ albums }: Props) => {
           <Text p={4} fontWeight='bold'>
             {album?.title}
           </Text>
+          <ImageModal album={album} />
         </Box>
       ))}
     </Flex>

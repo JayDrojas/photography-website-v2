@@ -8,6 +8,13 @@ query GetPortfolioAlbums($handle: String = "") {
       featureImage {
         url
       }
+      albumPhotosCollection {
+        items {
+          title
+          description
+          url
+        }
+      }
     }
   }
 }

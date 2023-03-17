@@ -10,7 +10,7 @@ interface Props {
   >;
 }
 
-const Portfolio = ({ portfolioGenres }: Props) => {
+const Portfolios = ({ portfolioGenres }: Props) => {
   return (
     <Flex
       p='20px'
@@ -40,7 +40,7 @@ const Portfolio = ({ portfolioGenres }: Props) => {
   );
 };
 
-export default Portfolio;
+export default Portfolios;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
