@@ -24,7 +24,6 @@ interface Props {
 }
 
 const ImageModal = ({ album }: Props) => {
-  console.log(album);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
