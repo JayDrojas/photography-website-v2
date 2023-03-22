@@ -28,7 +28,6 @@ const ImageModal = ({ album }: Props) => {
   return (
     <>
       <Button onClick={onOpen}>View Album</Button>
-
       <Modal
         isOpen={isOpen}
         onClose={onClose}
@@ -44,7 +43,7 @@ const ImageModal = ({ album }: Props) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Container overflow='auto' py={16}>
+            <Container overflow='auto'>
               <Swiper
                 navigation={true}
                 centeredSlides={true}
@@ -89,7 +88,6 @@ const ImageModal = ({ album }: Props) => {
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost'>Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
