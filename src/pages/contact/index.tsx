@@ -13,7 +13,6 @@ const Contact = () => {
       </Head>
       <Container textAlign='center' p={4}>
         <VStack gap={8}>
-          {/* Can do both */}
           <Heading>{`Let's Start Your Journey`}</Heading>
           <Text>Fill out information below and I{`'`}ll be in touch soon!</Text>
         </VStack>
